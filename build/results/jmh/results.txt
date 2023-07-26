@@ -1,0 +1,6 @@
+Benchmark                                       Mode  Cnt          Score   Error  Units
+SampleBenchmark.addItemBenchmark               thrpt        69311877.578          ops/s
+SampleBenchmark.addItemNameIncrementAndRemove  thrpt         6310857.099          ops/s
+SampleBenchmark.addNewItemBenchmark            thrpt       616512668.744          ops/s
+SampleBenchmark.removeItemNameBenchmark        thrpt        45600783.755          ops/s
+SampleBenchmark.removeItemsBenchmark           thrpt        10063148.518          ops/s

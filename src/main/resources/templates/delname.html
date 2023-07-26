@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" th:href="@{general.css}" />
+  <title>Delet Item</title>
+
+</head>
+<body>
+<h1>
+  <span th:text= "${customer.getName()}" /> 's ShoppingCart
+</h1>
+<form action="#" th:action="@{/deleteItems}" method="post">
+  <table>
+    <thead>
+    <tr>
+      <th>Item</th>
+      <th>Cost</th>
+      <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item : ${customer.getBasket().values}">
+      <td th:text="${item.getKey()}"></td>
+      <td th:text="${item.getValue()}"></td>
+      <td>
+        <label>
+          <input type="checkbox" name="items" th:value="${item.getKey()}" checked/>
+        </label>
+        <label for="name"></label>
+        <input type="hidden" id="name" name = "userName"  th:value="${customer.getName()}" />
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <button type="submit">Delete Items</button>
+</form>
+</body>
+</html>

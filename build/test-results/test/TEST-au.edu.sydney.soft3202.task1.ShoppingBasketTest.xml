@@ -1,0 +1,919 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="au.edu.sydney.soft3202.task1.ShoppingBasketTest" tests="28" skipped="0" failures="0" errors="0" timestamp="2023-04-06T13:09:15" hostname="DESKTOP-V593GE4" time="8.054">
+  <properties/>
+  <testcase name="TestCartUpdateEmpty()" classname="au.edu.sydney.soft3202.task1.ShoppingBasketTest" time="2.762"/>
+  <testcase name="TestUpdateName()" classname="au.edu.sydney.soft3202.task1.ShoppingBasketTest" time="0.649"/>
+  <testcase name="noSessionCodenewName()" classname="au.edu.sydney.soft3202.task1.ShoppingBasketTest" time="0.272"/>
+  <testcase name="TestdelNameGet()" classname="au.edu.sydney.soft3202.task1.ShoppingBasketTest" time="0.265"/>
+  <testcase name="TestCart()" classname="au.edu.sydney.soft3202.task1.ShoppingBasketTest" time="0.247"/>
+  <testcase name="myTest()" classname="au.edu.sydney.soft3202.task1.ShoppingBasketTest" time="0.206"/>
+  <testcase name="TestUpdateNameEmpty()" classname="au.edu.sydney.soft3202.task1.ShoppingBasketTest" time="0.204"/>
+  <testcase name="noSessionCodeCart()" classname="au.edu.sydney.soft3202.task1.ShoppingBasketTest" time="0.195"/>
+  <testcase name="TestCartUpdateException()" classname="au.edu.sydney.soft3202.task1.ShoppingBasketTest" time="0.185"/>
+  <testcase name="TestUpdateException()" classname="au.edu.sydney.soft3202.task1.ShoppingBasketTest" time="0.187"/>
+  <testcase name="TestUpdateProcess()" classname="au.edu.sydney.soft3202.task1.ShoppingBasketTest" time="0.21"/>
+  <testcase name="TestdelEmptyItem()" classname="au.edu.sydney.soft3202.task1.ShoppingBasketTest" time="0.164"/>
+  <testcase name="Testadding()" classname="au.edu.sydney.soft3202.task1.ShoppingBasketTest" time="0.167"/>
+  <testcase name="TestupdateNameeGet()" classname="au.edu.sydney.soft3202.task1.ShoppingBasketTest" time="0.184"/>
+  <testcase name="TestaddingNotDouble()" classname="au.edu.sydney.soft3202.task1.ShoppingBasketTest" time="0.169"/>
+  <testcase name="TestUpdateProcessEmpty()" classname="au.edu.sydney.soft3202.task1.ShoppingBasketTest" time="0.173"/>
+  <testcase name="TestUpdateProcessNotDouble()" classname="au.edu.sydney.soft3202.task1.ShoppingBasketTest" time="0.145"/>
+  <testcase name="TestCartUpdate()" classname="au.edu.sydney.soft3202.task1.ShoppingBasketTest" time="0.142"/>
+  <testcase name="TestaddingDuplicate()" classname="au.edu.sydney.soft3202.task1.ShoppingBasketTest" time="0.146"/>
+  <testcase name="notMatchedLogin()" classname="au.edu.sydney.soft3202.task1.ShoppingBasketTest" time="0.158"/>
+  <testcase name="getValueEmptyTest()" classname="au.edu.sydney.soft3202.task1.ShoppingBasketTest" time="0.133"/>
+  <testcase name="TestdelItem()" classname="au.edu.sydney.soft3202.task1.ShoppingBasketTest" time="0.161"/>
+  <testcase name="TestdelName()" classname="au.edu.sydney.soft3202.task1.ShoppingBasketTest" time="0.154"/>
+  <testcase name="TestnewName()" classname="au.edu.sydney.soft3202.task1.ShoppingBasketTest" time="0.153"/>
+  <testcase name="Testnewname()" classname="au.edu.sydney.soft3202.task1.ShoppingBasketTest" time="0.145"/>
+  <testcase name="itemSizeZero()" classname="au.edu.sydney.soft3202.task1.ShoppingBasketTest" time="0.135"/>
+  <testcase name="loginGetmapping()" classname="au.edu.sydney.soft3202.task1.ShoppingBasketTest" time="0.186"/>
+  <testcase name="noSessionCodedelName()" classname="au.edu.sydney.soft3202.task1.ShoppingBasketTest" time="0.15"/>
+  <system-out><![CDATA[
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.0)
+
+2023-04-06T23:09:16.702+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Starting GradleWorkerMain using Java 17.0.4 with PID 39376 (started by HollinJin in C:\Users\HollinJin\Desktop\SOFT3202\Task2)
+2023-04-06T23:09:16.707+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : No active profile set, falling back to 1 default profile: "default"
+2023-04-06T23:09:17.663+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-06T23:09:17.677+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-06T23:09:17.678+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.1]
+2023-04-06T23:09:17.773+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-06T23:09:17.774+10:00  INFO 39376 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1006 ms
+2023-04-06T23:09:18.043+10:00  INFO 39376 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-04-06T23:09:18.267+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-06T23:09:18.275+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Started GradleWorkerMain in 2.156 seconds (process running for 4.285)
+2023-04-06T23:09:18.542+10:00  INFO 39376 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-06T23:09:18.542+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-06T23:09:18.542+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+Login response status code: 302
+2023-04-06T23:09:18.649+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-06T23:09:18.651+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.0)
+
+2023-04-06T23:09:18.679+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Starting GradleWorkerMain using Java 17.0.4 with PID 39376 (started by HollinJin in C:\Users\HollinJin\Desktop\SOFT3202\Task2)
+2023-04-06T23:09:18.680+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : No active profile set, falling back to 1 default profile: "default"
+2023-04-06T23:09:18.821+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-06T23:09:18.822+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-06T23:09:18.822+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.1]
+2023-04-06T23:09:18.846+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-06T23:09:18.846+10:00  INFO 39376 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 165 ms
+2023-04-06T23:09:18.882+10:00  INFO 39376 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-04-06T23:09:18.915+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-06T23:09:18.917+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Started GradleWorkerMain in 0.254 seconds (process running for 4.928)
+2023-04-06T23:09:18.922+10:00  INFO 39376 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-06T23:09:18.922+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-06T23:09:18.923+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+Login response status code: 302
+TestUpdateName status code is: 200
+
+2023-04-06T23:09:19.307+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-06T23:09:19.307+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.0)
+
+2023-04-06T23:09:19.326+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Starting GradleWorkerMain using Java 17.0.4 with PID 39376 (started by HollinJin in C:\Users\HollinJin\Desktop\SOFT3202\Task2)
+2023-04-06T23:09:19.326+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : No active profile set, falling back to 1 default profile: "default"
+2023-04-06T23:09:19.450+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-06T23:09:19.451+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-06T23:09:19.451+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.1]
+2023-04-06T23:09:19.472+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-06T23:09:19.472+10:00  INFO 39376 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 145 ms
+2023-04-06T23:09:19.511+10:00  INFO 39376 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-04-06T23:09:19.541+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-06T23:09:19.543+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Started GradleWorkerMain in 0.231 seconds (process running for 5.553)
+2023-04-06T23:09:19.548+10:00  INFO 39376 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-06T23:09:19.548+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-06T23:09:19.549+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-04-06T23:09:19.578+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-06T23:09:19.578+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.0)
+
+2023-04-06T23:09:19.602+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Starting GradleWorkerMain using Java 17.0.4 with PID 39376 (started by HollinJin in C:\Users\HollinJin\Desktop\SOFT3202\Task2)
+2023-04-06T23:09:19.602+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : No active profile set, falling back to 1 default profile: "default"
+2023-04-06T23:09:19.717+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-06T23:09:19.718+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-06T23:09:19.719+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.1]
+2023-04-06T23:09:19.739+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-06T23:09:19.740+10:00  INFO 39376 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 136 ms
+2023-04-06T23:09:19.772+10:00  INFO 39376 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-04-06T23:09:19.794+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-06T23:09:19.796+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Started GradleWorkerMain in 0.212 seconds (process running for 5.807)
+2023-04-06T23:09:19.801+10:00  INFO 39376 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-06T23:09:19.802+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-06T23:09:19.802+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+Login response status code: 302
+TestdelNameGet status code is: 200
+
+2023-04-06T23:09:19.844+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-06T23:09:19.845+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.0)
+
+2023-04-06T23:09:19.865+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Starting GradleWorkerMain using Java 17.0.4 with PID 39376 (started by HollinJin in C:\Users\HollinJin\Desktop\SOFT3202\Task2)
+2023-04-06T23:09:19.866+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : No active profile set, falling back to 1 default profile: "default"
+2023-04-06T23:09:19.977+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-06T23:09:19.977+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-06T23:09:19.978+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.1]
+2023-04-06T23:09:20.000+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-06T23:09:20.000+10:00  INFO 39376 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 132 ms
+2023-04-06T23:09:20.024+10:00  INFO 39376 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-04-06T23:09:20.043+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-06T23:09:20.045+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Started GradleWorkerMain in 0.195 seconds (process running for 6.056)
+2023-04-06T23:09:20.049+10:00  INFO 39376 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-06T23:09:20.049+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-06T23:09:20.050+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+Login response status code: 302
+Cart response status code: 200
+Body is: <!--
+All the fancy notation aside, keep in mind that this is just a HTML file with special
+indicators the program looks for to then substitute values in.
+-->
+
+<!DOCTYPE html>
+<!--Add the xmlns whatever which so IntelliJ can help you out-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The ShoppingBasket</title>
+    <link rel="stylesheet" href="general.css" />
+</head>
+<body>
+<!--<h1>Welcome, <span th:text="${name}">Name</span>!</h1>-->
+<h1>
+    <span >A</span> 's ShoppingCart
+</h1>
+<h2>
+
+    The total cost is:<span >0</span>
+
+</h2>
+
+
+<form action="/updateCart" method="post">
+    <table>
+        <thead>
+        <tr>
+            <th>Item</th>
+            <th>Count</th>
+            <th>Update</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>orange</td>
+
+            <td>0</td>
+            <td>
+                <label for="value"></label>
+                <input type="text" id="value" name = "emptyList"  value="0" />
+            </td>
+            <td>
+                <label for="name"></label>
+                <input type="hidden" id="name" name = "customerName"  value="A" />
+            </td>
+        </tr>
+        <tr>
+            <td>banana</td>
+
+            <td>0</td>
+            <td>
+                <label for="value"></label>
+                <input type="text" id="value" name = "emptyList"  value="0" />
+            </td>
+            <td>
+                <label for="name"></label>
+                <input type="hidden" id="name" name = "customerName"  value="A" />
+            </td>
+        </tr>
+        <tr>
+            <td>apple</td>
+
+            <td>0</td>
+            <td>
+                <label for="value"></label>
+                <input type="text" id="value" name = "emptyList"  value="0" />
+            </td>
+            <td>
+                <label for="name"></label>
+                <input type="hidden" id="name" name = "customerName"  value="A" />
+            </td>
+        </tr>
+        <tr>
+            <td>pear</td>
+
+            <td>0</td>
+            <td>
+                <label for="value"></label>
+                <input type="text" id="value" name = "emptyList"  value="0" />
+            </td>
+            <td>
+                <label for="name"></label>
+                <input type="hidden" id="name" name = "customerName"  value="A" />
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <button type="submit">Update Cart</button>
+</form>
+
+<style>
+    .link-button {
+        background: none;
+        border: none;
+        color: blue;
+        text-decoration: underline;
+        cursor: pointer;
+        font-size: 18px;
+    }
+</style>
+
+<br><br><br><br>
+<!--<a th:href="@{/newname(name=${customer.getName()}, session=${token})}">Add New</a>-->
+
+<form action="/newname" method="post">
+    <input type="hidden" name="name" value="A">
+    <input type="hidden" name="session" value="0ee77a757d34712754f91c880d847e53">
+    <button type="submit" class="link-button">Add New</button>
+</form>
+
+
+<br><br><br><br>
+<!--<a th:href="@{/delname(name=${customer.getName()}, session=${token})}">Delete Items</a>-->
+
+<form action="/delname" method="post">
+    <input type="hidden" name="name" value="A">
+    <input type="hidden" name="session" value="0ee77a757d34712754f91c880d847e53">
+    <button type="submit" class="link-button">Delete Items</button>
+</form>
+
+<br><br><br><br>
+<!--<a th:href="@{/updatename (name=${customer.getName()}, session=${token})}">Update Name</a>-->
+
+<form action="/updatename" method="post">
+    <input type="hidden" name="name" value="A">
+    <input type="hidden" name="session" value="0ee77a757d34712754f91c880d847e53">
+    <button type="submit" class="link-button">Update Name</button>
+</form>
+
+
+<br><br><br><br>
+
+
+<a href="/logout?token=0ee77a757d34712754f91c880d847e53">LogOut</a>
+
+</body>
+</html>
+2023-04-06T23:09:20.093+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-06T23:09:20.093+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.0)
+
+2023-04-06T23:09:20.110+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Starting GradleWorkerMain using Java 17.0.4 with PID 39376 (started by HollinJin in C:\Users\HollinJin\Desktop\SOFT3202\Task2)
+2023-04-06T23:09:20.110+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : No active profile set, falling back to 1 default profile: "default"
+2023-04-06T23:09:20.193+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-06T23:09:20.194+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-06T23:09:20.194+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.1]
+2023-04-06T23:09:20.213+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-06T23:09:20.213+10:00  INFO 39376 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 102 ms
+2023-04-06T23:09:20.237+10:00  INFO 39376 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-04-06T23:09:20.265+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-06T23:09:20.266+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Started GradleWorkerMain in 0.17 seconds (process running for 6.277)
+2023-04-06T23:09:20.272+10:00  INFO 39376 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-06T23:09:20.273+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-06T23:09:20.273+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+http://localhost:8080/login?user=A POST
+(POST http://localhost:8080/login?user=A) 302
+2023-04-06T23:09:20.296+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-06T23:09:20.296+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.0)
+
+2023-04-06T23:09:20.318+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Starting GradleWorkerMain using Java 17.0.4 with PID 39376 (started by HollinJin in C:\Users\HollinJin\Desktop\SOFT3202\Task2)
+2023-04-06T23:09:20.318+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : No active profile set, falling back to 1 default profile: "default"
+2023-04-06T23:09:20.414+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-06T23:09:20.415+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-06T23:09:20.415+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.1]
+2023-04-06T23:09:20.431+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-06T23:09:20.432+10:00  INFO 39376 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 112 ms
+2023-04-06T23:09:20.453+10:00  INFO 39376 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-04-06T23:09:20.470+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-06T23:09:20.471+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Started GradleWorkerMain in 0.168 seconds (process running for 6.482)
+2023-04-06T23:09:20.476+10:00  INFO 39376 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-06T23:09:20.476+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-06T23:09:20.477+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+Login response status code: 302
+TestUpdateNameEmpty status code is: 200
+
+2023-04-06T23:09:20.502+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-06T23:09:20.502+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.0)
+
+2023-04-06T23:09:20.517+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Starting GradleWorkerMain using Java 17.0.4 with PID 39376 (started by HollinJin in C:\Users\HollinJin\Desktop\SOFT3202\Task2)
+2023-04-06T23:09:20.517+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : No active profile set, falling back to 1 default profile: "default"
+2023-04-06T23:09:20.607+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-06T23:09:20.608+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-06T23:09:20.608+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.1]
+2023-04-06T23:09:20.623+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-06T23:09:20.623+10:00  INFO 39376 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 105 ms
+2023-04-06T23:09:20.639+10:00  INFO 39376 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-04-06T23:09:20.653+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-06T23:09:20.654+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Started GradleWorkerMain in 0.147 seconds (process running for 6.665)
+2023-04-06T23:09:20.658+10:00  INFO 39376 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-06T23:09:20.658+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-06T23:09:20.659+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+http://localhost:8080/cart?user=A GET
+(GET http://localhost:8080/cart?user=A) 200
+2023-04-06T23:09:20.697+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-06T23:09:20.697+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.0)
+
+2023-04-06T23:09:20.714+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Starting GradleWorkerMain using Java 17.0.4 with PID 39376 (started by HollinJin in C:\Users\HollinJin\Desktop\SOFT3202\Task2)
+2023-04-06T23:09:20.715+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : No active profile set, falling back to 1 default profile: "default"
+2023-04-06T23:09:20.795+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-06T23:09:20.795+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-06T23:09:20.796+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.1]
+2023-04-06T23:09:20.812+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-06T23:09:20.812+10:00  INFO 39376 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 96 ms
+2023-04-06T23:09:20.834+10:00  INFO 39376 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-04-06T23:09:20.851+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-06T23:09:20.853+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Started GradleWorkerMain in 0.15 seconds (process running for 6.863)
+2023-04-06T23:09:20.856+10:00  INFO 39376 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-06T23:09:20.857+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-06T23:09:20.857+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+Login response status code: 302
+java.lang.NumberFormatException: For input string: "G"
+currently processingorange
+{orange=0, banana=0, apple=0, pear=0}
+{orange=1.25, banana=4.95, apple=2.5, pear=3.0}
+[apple, orange, pear, banana]
+Exception status code is: 200
+2023-04-06T23:09:20.884+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-06T23:09:20.884+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.0)
+
+2023-04-06T23:09:20.898+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Starting GradleWorkerMain using Java 17.0.4 with PID 39376 (started by HollinJin in C:\Users\HollinJin\Desktop\SOFT3202\Task2)
+2023-04-06T23:09:20.899+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : No active profile set, falling back to 1 default profile: "default"
+2023-04-06T23:09:20.976+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-06T23:09:20.977+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-06T23:09:20.977+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.1]
+2023-04-06T23:09:20.994+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-06T23:09:20.994+10:00  INFO 39376 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 94 ms
+2023-04-06T23:09:21.018+10:00  INFO 39376 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-04-06T23:09:21.040+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-06T23:09:21.041+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Started GradleWorkerMain in 0.153 seconds (process running for 7.052)
+2023-04-06T23:09:21.046+10:00  INFO 39376 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-06T23:09:21.046+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-06T23:09:21.047+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+Login response status code: 302
+{apple=-1, appless=-1, applesss=-1, apples=-1}
+[apple, orange, pear, banana]
+{apple=1.0, appless=3.0, applesss=4.0, apples=2.0}
+TestUpdateProcess status code is: 302
+
+2023-04-06T23:09:21.071+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-06T23:09:21.071+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.0)
+
+2023-04-06T23:09:21.089+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Starting GradleWorkerMain using Java 17.0.4 with PID 39376 (started by HollinJin in C:\Users\HollinJin\Desktop\SOFT3202\Task2)
+2023-04-06T23:09:21.089+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : No active profile set, falling back to 1 default profile: "default"
+2023-04-06T23:09:21.185+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-06T23:09:21.186+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-06T23:09:21.186+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.1]
+2023-04-06T23:09:21.205+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-06T23:09:21.205+10:00  INFO 39376 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 114 ms
+2023-04-06T23:09:21.225+10:00  INFO 39376 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-04-06T23:09:21.243+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-06T23:09:21.245+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Started GradleWorkerMain in 0.168 seconds (process running for 7.256)
+2023-04-06T23:09:21.252+10:00  INFO 39376 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-06T23:09:21.253+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-06T23:09:21.253+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+Login response status code: 302
+{apple=-1, appless=-1, applesss=-1, apples=-1}
+[apple, orange, pear, banana]
+{apple=1.0, appless=3.0, applesss=4.0, apples=2.0}
+TestUpdateProcess status code is: 302
+
+2023-04-06T23:09:21.282+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-06T23:09:21.282+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.0)
+
+2023-04-06T23:09:21.298+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Starting GradleWorkerMain using Java 17.0.4 with PID 39376 (started by HollinJin in C:\Users\HollinJin\Desktop\SOFT3202\Task2)
+2023-04-06T23:09:21.299+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : No active profile set, falling back to 1 default profile: "default"
+2023-04-06T23:09:21.366+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-06T23:09:21.366+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-06T23:09:21.367+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.1]
+2023-04-06T23:09:21.381+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-06T23:09:21.381+10:00  INFO 39376 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 81 ms
+2023-04-06T23:09:21.400+10:00  INFO 39376 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-04-06T23:09:21.416+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-06T23:09:21.418+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Started GradleWorkerMain in 0.132 seconds (process running for 7.429)
+2023-04-06T23:09:21.423+10:00  INFO 39376 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-06T23:09:21.423+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-06T23:09:21.424+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+Login response status code: 302
+TestdelEmptyItem status code is: 302
+
+2023-04-06T23:09:21.446+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-06T23:09:21.446+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.0)
+
+2023-04-06T23:09:21.464+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Starting GradleWorkerMain using Java 17.0.4 with PID 39376 (started by HollinJin in C:\Users\HollinJin\Desktop\SOFT3202\Task2)
+2023-04-06T23:09:21.464+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : No active profile set, falling back to 1 default profile: "default"
+2023-04-06T23:09:21.535+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-06T23:09:21.535+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-06T23:09:21.536+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.1]
+2023-04-06T23:09:21.551+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-06T23:09:21.551+10:00  INFO 39376 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 86 ms
+2023-04-06T23:09:21.570+10:00  INFO 39376 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-04-06T23:09:21.586+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-06T23:09:21.588+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Started GradleWorkerMain in 0.137 seconds (process running for 7.599)
+2023-04-06T23:09:21.592+10:00  INFO 39376 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-06T23:09:21.592+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-06T23:09:21.592+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+Login response status code: 302
+Testadding status code is: 302
+
+2023-04-06T23:09:21.615+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-06T23:09:21.615+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.0)
+
+2023-04-06T23:09:21.629+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Starting GradleWorkerMain using Java 17.0.4 with PID 39376 (started by HollinJin in C:\Users\HollinJin\Desktop\SOFT3202\Task2)
+2023-04-06T23:09:21.630+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : No active profile set, falling back to 1 default profile: "default"
+2023-04-06T23:09:21.705+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-06T23:09:21.706+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-06T23:09:21.706+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.1]
+2023-04-06T23:09:21.724+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-06T23:09:21.724+10:00  INFO 39376 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 93 ms
+2023-04-06T23:09:21.742+10:00  INFO 39376 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-04-06T23:09:21.756+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-06T23:09:21.758+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Started GradleWorkerMain in 0.139 seconds (process running for 7.769)
+2023-04-06T23:09:21.763+10:00  INFO 39376 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-06T23:09:21.763+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-06T23:09:21.763+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+Login response status code: 302
+A
+TestdelNameGet status code is: 200
+
+2023-04-06T23:09:21.798+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-06T23:09:21.798+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.0)
+
+2023-04-06T23:09:21.813+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Starting GradleWorkerMain using Java 17.0.4 with PID 39376 (started by HollinJin in C:\Users\HollinJin\Desktop\SOFT3202\Task2)
+2023-04-06T23:09:21.813+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : No active profile set, falling back to 1 default profile: "default"
+2023-04-06T23:09:21.886+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-06T23:09:21.887+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-06T23:09:21.887+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.1]
+2023-04-06T23:09:21.903+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-06T23:09:21.903+10:00  INFO 39376 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 88 ms
+2023-04-06T23:09:21.919+10:00  INFO 39376 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-04-06T23:09:21.935+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-06T23:09:21.936+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Started GradleWorkerMain in 0.135 seconds (process running for 7.947)
+2023-04-06T23:09:21.940+10:00  INFO 39376 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-06T23:09:21.941+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-06T23:09:21.941+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+Login response status code: 302
+TestaddingNotDouble status code is: 200
+
+2023-04-06T23:09:21.968+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-06T23:09:21.968+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.0)
+
+2023-04-06T23:09:21.985+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Starting GradleWorkerMain using Java 17.0.4 with PID 39376 (started by HollinJin in C:\Users\HollinJin\Desktop\SOFT3202\Task2)
+2023-04-06T23:09:21.985+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : No active profile set, falling back to 1 default profile: "default"
+2023-04-06T23:09:22.063+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-06T23:09:22.064+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-06T23:09:22.064+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.1]
+2023-04-06T23:09:22.078+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-06T23:09:22.078+10:00  INFO 39376 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 92 ms
+2023-04-06T23:09:22.099+10:00  INFO 39376 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-04-06T23:09:22.117+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-06T23:09:22.118+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Started GradleWorkerMain in 0.146 seconds (process running for 8.13)
+2023-04-06T23:09:22.122+10:00  INFO 39376 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-06T23:09:22.122+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-06T23:09:22.122+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+Login response status code: 302
+TestUpdateProcessEmpty status code is: 302
+
+2023-04-06T23:09:22.141+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-06T23:09:22.141+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.0)
+
+2023-04-06T23:09:22.153+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Starting GradleWorkerMain using Java 17.0.4 with PID 39376 (started by HollinJin in C:\Users\HollinJin\Desktop\SOFT3202\Task2)
+2023-04-06T23:09:22.153+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : No active profile set, falling back to 1 default profile: "default"
+2023-04-06T23:09:22.217+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-06T23:09:22.218+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-06T23:09:22.218+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.1]
+2023-04-06T23:09:22.231+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-06T23:09:22.231+10:00  INFO 39376 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 77 ms
+2023-04-06T23:09:22.245+10:00  INFO 39376 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-04-06T23:09:22.257+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-06T23:09:22.258+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Started GradleWorkerMain in 0.114 seconds (process running for 8.269)
+2023-04-06T23:09:22.262+10:00  INFO 39376 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-06T23:09:22.262+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-06T23:09:22.262+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+Login response status code: 302
+TestUpdateProcessEmpty status code is: 200
+
+2023-04-06T23:09:22.286+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-06T23:09:22.286+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.0)
+
+2023-04-06T23:09:22.300+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Starting GradleWorkerMain using Java 17.0.4 with PID 39376 (started by HollinJin in C:\Users\HollinJin\Desktop\SOFT3202\Task2)
+2023-04-06T23:09:22.300+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : No active profile set, falling back to 1 default profile: "default"
+2023-04-06T23:09:22.367+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-06T23:09:22.368+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-06T23:09:22.368+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.1]
+2023-04-06T23:09:22.381+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-06T23:09:22.382+10:00  INFO 39376 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 80 ms
+2023-04-06T23:09:22.395+10:00  INFO 39376 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-04-06T23:09:22.406+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-06T23:09:22.407+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Started GradleWorkerMain in 0.117 seconds (process running for 8.418)
+2023-04-06T23:09:22.410+10:00  INFO 39376 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-06T23:09:22.410+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-06T23:09:22.411+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+Login response status code: 302
+TestCartUpdate Cart response status code: 302
+Body is: 
+2023-04-06T23:09:22.429+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-06T23:09:22.429+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.0)
+
+2023-04-06T23:09:22.441+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Starting GradleWorkerMain using Java 17.0.4 with PID 39376 (started by HollinJin in C:\Users\HollinJin\Desktop\SOFT3202\Task2)
+2023-04-06T23:09:22.441+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : No active profile set, falling back to 1 default profile: "default"
+2023-04-06T23:09:22.503+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-06T23:09:22.504+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-06T23:09:22.504+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.1]
+2023-04-06T23:09:22.518+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-06T23:09:22.519+10:00  INFO 39376 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 77 ms
+2023-04-06T23:09:22.535+10:00  INFO 39376 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-04-06T23:09:22.550+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-06T23:09:22.551+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Started GradleWorkerMain in 0.119 seconds (process running for 8.562)
+2023-04-06T23:09:22.555+10:00  INFO 39376 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-06T23:09:22.555+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-06T23:09:22.556+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+Login response status code: 302
+TestaddingDuplicate status code is: 302
+
+2023-04-06T23:09:22.573+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-06T23:09:22.574+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.0)
+
+2023-04-06T23:09:22.586+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Starting GradleWorkerMain using Java 17.0.4 with PID 39376 (started by HollinJin in C:\Users\HollinJin\Desktop\SOFT3202\Task2)
+2023-04-06T23:09:22.587+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : No active profile set, falling back to 1 default profile: "default"
+2023-04-06T23:09:22.651+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-06T23:09:22.651+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-06T23:09:22.652+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.1]
+2023-04-06T23:09:22.665+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-06T23:09:22.665+10:00  INFO 39376 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 77 ms
+2023-04-06T23:09:22.679+10:00  INFO 39376 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-04-06T23:09:22.692+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-06T23:09:22.693+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Started GradleWorkerMain in 0.115 seconds (process running for 8.704)
+2023-04-06T23:09:22.696+10:00  INFO 39376 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-06T23:09:22.697+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-06T23:09:22.697+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+http://localhost:8080/login POST
+(POST http://localhost:8080/login) 401
+2023-04-06T23:09:22.732+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-06T23:09:22.732+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.0)
+
+2023-04-06T23:09:22.745+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Starting GradleWorkerMain using Java 17.0.4 with PID 39376 (started by HollinJin in C:\Users\HollinJin\Desktop\SOFT3202\Task2)
+2023-04-06T23:09:22.745+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : No active profile set, falling back to 1 default profile: "default"
+2023-04-06T23:09:22.805+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-06T23:09:22.806+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-06T23:09:22.806+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.1]
+2023-04-06T23:09:22.820+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-06T23:09:22.820+10:00  INFO 39376 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 74 ms
+2023-04-06T23:09:22.836+10:00  INFO 39376 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-04-06T23:09:22.849+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-06T23:09:22.851+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Started GradleWorkerMain in 0.115 seconds (process running for 8.862)
+2023-04-06T23:09:22.866+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.0)
+
+2023-04-06T23:09:22.879+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Starting GradleWorkerMain using Java 17.0.4 with PID 39376 (started by HollinJin in C:\Users\HollinJin\Desktop\SOFT3202\Task2)
+2023-04-06T23:09:22.879+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : No active profile set, falling back to 1 default profile: "default"
+2023-04-06T23:09:22.944+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-06T23:09:22.945+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-06T23:09:22.945+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.1]
+2023-04-06T23:09:22.959+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-06T23:09:22.959+10:00  INFO 39376 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 79 ms
+2023-04-06T23:09:22.973+10:00  INFO 39376 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-04-06T23:09:22.987+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-06T23:09:22.988+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Started GradleWorkerMain in 0.118 seconds (process running for 8.998)
+2023-04-06T23:09:22.991+10:00  INFO 39376 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-06T23:09:22.991+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-06T23:09:22.992+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+Login response status code: 302
+TestdelItem status code is: 302
+
+2023-04-06T23:09:23.026+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-06T23:09:23.026+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.0)
+
+2023-04-06T23:09:23.041+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Starting GradleWorkerMain using Java 17.0.4 with PID 39376 (started by HollinJin in C:\Users\HollinJin\Desktop\SOFT3202\Task2)
+2023-04-06T23:09:23.041+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : No active profile set, falling back to 1 default profile: "default"
+2023-04-06T23:09:23.099+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-06T23:09:23.100+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-06T23:09:23.100+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.1]
+2023-04-06T23:09:23.115+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-06T23:09:23.115+10:00  INFO 39376 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 73 ms
+2023-04-06T23:09:23.131+10:00  INFO 39376 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-04-06T23:09:23.144+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-06T23:09:23.146+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Started GradleWorkerMain in 0.115 seconds (process running for 9.157)
+2023-04-06T23:09:23.150+10:00  INFO 39376 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-06T23:09:23.150+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-06T23:09:23.150+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+Login response status code: 302
+delName status code is: 200
+2023-04-06T23:09:23.180+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-06T23:09:23.180+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.0)
+
+2023-04-06T23:09:23.195+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Starting GradleWorkerMain using Java 17.0.4 with PID 39376 (started by HollinJin in C:\Users\HollinJin\Desktop\SOFT3202\Task2)
+2023-04-06T23:09:23.196+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : No active profile set, falling back to 1 default profile: "default"
+2023-04-06T23:09:23.262+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-06T23:09:23.262+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-06T23:09:23.262+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.1]
+2023-04-06T23:09:23.275+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-06T23:09:23.276+10:00  INFO 39376 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 79 ms
+2023-04-06T23:09:23.289+10:00  INFO 39376 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-04-06T23:09:23.303+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-06T23:09:23.304+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Started GradleWorkerMain in 0.119 seconds (process running for 9.314)
+2023-04-06T23:09:23.308+10:00  INFO 39376 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-06T23:09:23.308+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-06T23:09:23.308+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+Login response status code: 302
+TestnewName status code is: 200
+2023-04-06T23:09:23.334+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-06T23:09:23.334+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.0)
+
+2023-04-06T23:09:23.346+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Starting GradleWorkerMain using Java 17.0.4 with PID 39376 (started by HollinJin in C:\Users\HollinJin\Desktop\SOFT3202\Task2)
+2023-04-06T23:09:23.346+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : No active profile set, falling back to 1 default profile: "default"
+2023-04-06T23:09:23.410+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-06T23:09:23.411+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-06T23:09:23.411+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.1]
+2023-04-06T23:09:23.424+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-06T23:09:23.424+10:00  INFO 39376 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 77 ms
+2023-04-06T23:09:23.437+10:00  INFO 39376 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-04-06T23:09:23.447+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-06T23:09:23.448+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Started GradleWorkerMain in 0.111 seconds (process running for 9.459)
+2023-04-06T23:09:23.452+10:00  INFO 39376 --- [nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-06T23:09:23.452+10:00  INFO 39376 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-06T23:09:23.452+10:00  INFO 39376 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+Login response status code: 302
+Testnewname status code is: 200
+
+2023-04-06T23:09:23.479+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-06T23:09:23.480+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.0)
+
+2023-04-06T23:09:23.492+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Starting GradleWorkerMain using Java 17.0.4 with PID 39376 (started by HollinJin in C:\Users\HollinJin\Desktop\SOFT3202\Task2)
+2023-04-06T23:09:23.493+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : No active profile set, falling back to 1 default profile: "default"
+2023-04-06T23:09:23.551+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-06T23:09:23.551+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-06T23:09:23.551+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.1]
+2023-04-06T23:09:23.564+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-06T23:09:23.565+10:00  INFO 39376 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 71 ms
+2023-04-06T23:09:23.579+10:00  INFO 39376 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-04-06T23:09:23.591+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-06T23:09:23.592+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Started GradleWorkerMain in 0.108 seconds (process running for 9.602)
+2023-04-06T23:09:23.595+10:00  INFO 39376 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-06T23:09:23.595+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-06T23:09:23.595+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+Login response status code: 302
+TestUpdateName status code is: 302
+
+2023-04-06T23:09:23.613+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-06T23:09:23.614+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.0)
+
+2023-04-06T23:09:23.626+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Starting GradleWorkerMain using Java 17.0.4 with PID 39376 (started by HollinJin in C:\Users\HollinJin\Desktop\SOFT3202\Task2)
+2023-04-06T23:09:23.626+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : No active profile set, falling back to 1 default profile: "default"
+2023-04-06T23:09:23.691+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-06T23:09:23.691+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-06T23:09:23.691+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.1]
+2023-04-06T23:09:23.705+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-06T23:09:23.705+10:00  INFO 39376 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 78 ms
+2023-04-06T23:09:23.717+10:00  INFO 39376 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-04-06T23:09:23.731+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-06T23:09:23.732+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Started GradleWorkerMain in 0.114 seconds (process running for 9.743)
+2023-04-06T23:09:23.736+10:00  INFO 39376 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-06T23:09:23.736+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-06T23:09:23.736+10:00  INFO 39376 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+Login response status code: 302
+TestUpdateProcessEmpty status code is: 302
+
+2023-04-06T23:09:23.801+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-06T23:09:23.801+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.0)
+
+2023-04-06T23:09:23.812+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Starting GradleWorkerMain using Java 17.0.4 with PID 39376 (started by HollinJin in C:\Users\HollinJin\Desktop\SOFT3202\Task2)
+2023-04-06T23:09:23.812+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : No active profile set, falling back to 1 default profile: "default"
+2023-04-06T23:09:23.868+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-06T23:09:23.868+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-06T23:09:23.868+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.1]
+2023-04-06T23:09:23.882+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-06T23:09:23.882+10:00  INFO 39376 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 69 ms
+2023-04-06T23:09:23.896+10:00  INFO 39376 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-04-06T23:09:23.907+10:00  INFO 39376 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-06T23:09:23.908+10:00  INFO 39376 --- [    Test worker] w.o.g.p.i.worker.GradleWorkerMain        : Started GradleWorkerMain in 0.104 seconds (process running for 9.919)
+2023-04-06T23:09:23.912+10:00  INFO 39376 --- [nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-06T23:09:23.912+10:00  INFO 39376 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-06T23:09:23.912+10:00  INFO 39376 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2023-04-06T23:09:23.949+10:00  INFO 39376 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-06T23:09:23.949+10:00  INFO 39376 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

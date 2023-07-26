@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="au.edu.sydney.soft3202.task1.ShoppingBasketPropertyTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2023-04-06T13:09:15" hostname="DESKTOP-V593GE4" time="0.589">
+  <properties/>
+  <testcase name="valueShouldBeZeroAfterAllItemsRemoved" classname="au.edu.sydney.soft3202.task1.ShoppingBasketPropertyTest" time="0.423"/>
+  <testcase name="addingItemsReflectsCost" classname="au.edu.sydney.soft3202.task1.ShoppingBasketPropertyTest" time="0.027"/>
+  <testcase name="getValueEmptyPropertyTest" classname="au.edu.sydney.soft3202.task1.ShoppingBasketPropertyTest" time="0.036"/>
+  <testcase name="addItemEdgeTets()" classname="au.edu.sydney.soft3202.task1.ShoppingBasketPropertyTest" time="0.025"/>
+  <testcase name="removeItemEdgeTets()" classname="au.edu.sydney.soft3202.task1.ShoppingBasketPropertyTest" time="0.003"/>
+  <system-out><![CDATA[timestamp = 2023-04-06T23:09:15.716069700, ShoppingBasketPropertyTest:valueShouldBeZeroAfterAllItemsRemoved = 
+                              |-----------------------jqwik-----------------------
+tries = 50                    | # of calls to property
+checks = 50                   | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = MIXIN       | edge cases are mixed in
+edge-cases#total = 16         | # of all combined edge cases
+edge-cases#tried = 8          | # of edge cases tried in current run
+seed = 4248060933795010746    | random seed to reproduce generated values
+
+
+timestamp = 2023-04-06T23:09:15.754258200, ShoppingBasketPropertyTest:addingItemsReflectsCost = 
+                              |-----------------------jqwik-----------------------
+tries = 50                    | # of calls to property
+checks = 50                   | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = MIXIN       | edge cases are mixed in
+edge-cases#total = 4          | # of all combined edge cases
+edge-cases#tried = 4          | # of edge cases tried in current run
+seed = -4524759104365143468   | random seed to reproduce generated values
+
+
+timestamp = 2023-04-06T23:09:15.790556, ShoppingBasketPropertyTest:getValueEmptyPropertyTest = 
+                              |-----------------------jqwik-----------------------
+tries = 1000                  | # of calls to property
+checks = 1000                 | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = MIXIN       | edge cases are mixed in
+edge-cases#total = 0          | # of all combined edge cases
+edge-cases#tried = 0          | # of edge cases tried in current run
+seed = -6226037552573513443   | random seed to reproduce generated values
+
+
+]]></system-out>
+  <system-err><![CDATA[4月 06, 2023 11:09:15 下午 net.jqwik.engine.execution.CheckedProperty maybeWarnOnMultipleTriesWithoutForallParameters
+警告: Running Property [ShoppingBasketPropertyTest:getValueEmptyPropertyTest] in container [au.edu.sydney.soft3202.task1.ShoppingBasketPropertyTest] without any @ForAll parameters for 1000 tries.
+    Maybe you want to change it into an @Example?
+]]></system-err>
+</testsuite>

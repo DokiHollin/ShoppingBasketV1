@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{general.css}" />
+    <title>Add New</title>
+
+</head>
+<body>
+<form action="/adding" method="post">
+    <label for="name1">Name: </label>
+    <input type="text" id="name1" name="newName" />
+
+    <label for="cost">Cost: </label>
+    <input type="number" id="cost" name="cost" />
+
+    <label for="name"></label>
+    <input type="hidden" id="name" name = "userName"  th:value="${customer}" />
+
+    <button type="submit">Add!</button>
+</form>
+</body>
+</html>

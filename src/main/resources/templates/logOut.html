@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!--Add the xmlns whatever which so IntelliJ can help you out-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>The ShoppingBasket</title>
+    <link rel="stylesheet" th:href="@{general.css}" />
+</head>
+<body>
+<form action="#" th:action="@{/logOut}"  method="post">
+    <div id="logout-button">
+
+        <label for="name"></label>
+        <input type="hidden" id="name" name = "token"  th:value="${token}" />
+
+        <a th:href="@{/logout (token=${token})}">
+            <button>Log Out</button>
+        </a>
+    </div>
+</form>
+</body>
+</html>

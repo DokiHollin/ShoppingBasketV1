@@ -1,0 +1,100 @@
+<!--
+All the fancy notation aside, keep in mind that this is just a HTML file with special
+indicators the program looks for to then substitute values in.
+-->
+
+<!DOCTYPE html>
+<!--Add the xmlns whatever which so IntelliJ can help you out-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>The ShoppingBasket</title>
+    <link rel="stylesheet" th:href="@{general.css}" />
+</head>
+<body>
+<!--<h1>Welcome, <span th:text="${name}">Name</span>!</h1>-->
+<h1>
+    <span th:text= "${customer.getName()}" /> 's ShoppingCart
+</h1>
+<h2>
+
+    The total cost is:<span th:text="${customer.getBasket().getValue()} ?: '0'" />
+
+</h2>
+
+
+<form action="#" th:action="@{/updateCart}"  method="post">
+    <table>
+        <thead>
+        <tr>
+            <th>Item</th>
+            <th>Count</th>
+            <th>Update</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="item, index : ${customer.getBasket().items}">
+            <td th:text="${item.key}"></td>
+
+            <td th:text="${item.value}"></td>
+            <td>
+                <label for="value"></label>
+                <input type="text" id="value" name = "emptyList"  th:value="${item.value}" />
+            </td>
+            <td>
+                <label for="name"></label>
+                <input type="hidden" id="name" name = "customerName"  th:value="${customer.getName()}" />
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <button type="submit">Update Cart</button>
+</form>
+
+<style>
+    .link-button {
+        background: none;
+        border: none;
+        color: blue;
+        text-decoration: underline;
+        cursor: pointer;
+        font-size: 18px;
+    }
+</style>
+
+<br><br><br><br>
+<!--<a th:href="@{/newname(name=${customer.getName()}, session=${token})}">Add New</a>-->
+
+<form action="/newname" method="post">
+    <input type="hidden" name="name" th:value="${customer.getName()}">
+    <input type="hidden" name="session" th:value="${token}">
+    <button type="submit" class="link-button">Add New</button>
+</form>
+
+
+<br><br><br><br>
+<!--<a th:href="@{/delname(name=${customer.getName()}, session=${token})}">Delete Items</a>-->
+
+<form action="/delname" method="post">
+    <input type="hidden" name="name" th:value="${customer.getName()}">
+    <input type="hidden" name="session" th:value="${token}">
+    <button type="submit" class="link-button">Delete Items</button>
+</form>
+
+<br><br><br><br>
+<!--<a th:href="@{/updatename (name=${customer.getName()}, session=${token})}">Update Name</a>-->
+
+<form action="/updatename" method="post">
+    <input type="hidden" name="name" th:value="${customer.getName()}">
+    <input type="hidden" name="session" th:value="${token}">
+    <button type="submit" class="link-button">Update Name</button>
+</form>
+
+
+<br><br><br><br>
+
+
+<a th:href="@{/logout(token=${token})}">LogOut</a>
+
+</body>
+</html>

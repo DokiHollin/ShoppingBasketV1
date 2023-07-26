@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ShoppingController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Task2</a> &gt; <a href="index.source.html" class="el_package">au.edu.sydney.soft3202.task1</a> &gt; <span class="el_source">ShoppingController.java</span></div><h1>ShoppingController.java</h1><pre class="source lang-java linenums">package au.edu.sydney.soft3202.task1;
+
+import jakarta.servlet.http.HttpSession;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.*;
+
+import java.net.URI;
+import java.security.SecureRandom;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicLong;
+
+@Controller
+<span class="fc" id="L18">public class ShoppingController {</span>
+<span class="fc" id="L19">    private final SecureRandom randomNumberGenerator = new SecureRandom();</span>
+<span class="fc" id="L20">    private final HexFormat hexFormatter = HexFormat.of();</span>
+
+<span class="fc" id="L22">    private final AtomicLong counter = new AtomicLong();</span>
+<span class="fc" id="L23">    ShoppingBasket shoppingBasket = new ShoppingBasket();</span>
+
+<span class="fc" id="L25">    Map&lt;String, String&gt; sessions = new HashMap&lt;&gt;();</span>
+
+<span class="fc" id="L27">    String[] users = {&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;};</span>
+
+<span class="fc" id="L29">    Map&lt;String,Customer&gt; customers = new HashMap&lt;&gt;();</span>
+
+    @PostMapping(&quot;/login&quot;)
+    public ResponseEntity&lt;String&gt; login(@RequestParam(value = &quot;user&quot;, defaultValue = &quot;&quot;) String user) {
+
+        // We are just checking the username, in the real world you would also check their password here
+        // or authenticate the user some other way.
+<span class="fc bfc" id="L36" title="All 2 branches covered.">        if (!Arrays.asList(users).contains(user)) {</span>
+<span class="fc" id="L37">            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(&quot;Invalid user.\n&quot;);</span>
+        }
+
+<span class="pc bpc" id="L40" title="1 of 2 branches missed.">        if(customers.size() == 0){</span>
+<span class="fc" id="L41">            customers.put(&quot;A&quot;,new Customer(&quot;A&quot;));</span>
+<span class="fc" id="L42">            customers.put(&quot;B&quot;,new Customer(&quot;B&quot;));</span>
+<span class="fc" id="L43">            customers.put(&quot;C&quot;,new Customer(&quot;C&quot;));</span>
+<span class="fc" id="L44">            customers.put(&quot;D&quot;,new Customer(&quot;D&quot;));</span>
+<span class="fc" id="L45">            customers.put(&quot;E&quot;,new Customer(&quot;E&quot;));</span>
+        }
+
+        // Generate the session token.
+<span class="fc" id="L49">        byte[] sessionTokenBytes = new byte[16];</span>
+<span class="fc" id="L50">        randomNumberGenerator.nextBytes(sessionTokenBytes);</span>
+<span class="fc" id="L51">        String sessionToken = hexFormatter.formatHex(sessionTokenBytes);</span>
+
+        // Store the association of the session token with the user.
+<span class="fc" id="L54">        sessions.put(sessionToken, user);</span>
+
+        // Create HTTP headers including the instruction for the browser to store the session token in a cookie.
+<span class="fc" id="L57">        String setCookieHeaderValue = String.format(&quot;session=%s; Path=/; HttpOnly; SameSite=Strict;&quot;, sessionToken);</span>
+<span class="fc" id="L58">        HttpHeaders headers = new HttpHeaders();</span>
+<span class="fc" id="L59">        headers.add(&quot;Set-Cookie&quot;, setCookieHeaderValue);</span>
+
+        // Redirect to the cart page, with the session-cookie-setting headers.
+<span class="fc" id="L62">        return ResponseEntity.status(HttpStatus.FOUND).headers(headers).location(URI.create(&quot;/cart&quot;)).build();</span>
+
+    }
+
+    @GetMapping(&quot;/cart&quot;)
+    public String cart(@CookieValue(value = &quot;session&quot;, defaultValue = &quot;&quot;) String sessionToken,
+        Model model
+    ) {
+<span class="fc bfc" id="L70" title="All 2 branches covered.">        if (!sessions.containsKey(sessionToken)) {</span>
+            //return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(&quot;Unauthorised.\n&quot;);
+<span class="fc" id="L72">            return &quot;InvalidPage&quot;;</span>
+        }
+<span class="fc" id="L74">        Customer customer = customers.get(sessions.get(sessionToken));</span>
+<span class="fc" id="L75">        model.addAttribute(&quot;customer&quot;, customer);</span>
+<span class="fc" id="L76">        model.addAttribute(&quot;basket&quot;, customer.getBasket());</span>
+<span class="fc" id="L77">        int[] array = new int[customer.getBasket().items.size()];</span>
+<span class="fc" id="L78">        model.addAttribute(&quot;emptyList&quot;, array);</span>
+<span class="fc" id="L79">        model.addAttribute(&quot;token&quot;, sessionToken);</span>
+
+<span class="fc" id="L81">        return &quot;cart&quot;;</span>
+    }
+
+    @PostMapping(&quot;/updateCart&quot;)
+    public String updateCart(
+                             @RequestParam(value = &quot;emptyList&quot;,defaultValue = &quot;&quot;) String list,
+                             @RequestParam(value = &quot;customerName&quot;,defaultValue = &quot;&quot;) String name,
+                             @CookieValue(value = &quot;session&quot;, defaultValue = &quot;&quot;) String sessionToken,
+                             Model model ) {
+
+<span class="pc bpc" id="L91" title="1 of 4 branches missed.">        if(Objects.equals(list, &quot;&quot;) || Objects.equals(name, &quot;&quot;)){</span>
+<span class="fc" id="L92">            return &quot;redirect:/cart&quot;;</span>
+        }
+<span class="fc" id="L94">        String actualName = name.split(&quot;,&quot;)[0];</span>
+<span class="fc" id="L95">        String[] arrOfStr = list.split(&quot;,&quot;, customers.get(actualName).getBasket().items.size());</span>
+<span class="fc" id="L96">        int i = 0;</span>
+
+<span class="fc bfc" id="L98" title="All 2 branches covered.">        for(Map.Entry&lt;String,Integer&gt; each: customers.get(actualName).getBasket().items.entrySet()){</span>
+            try{
+<span class="fc" id="L100">                each.setValue(0);</span>
+<span class="pc bpc" id="L101" title="1 of 2 branches missed.">                if(Integer.parseInt(arrOfStr[i]) &gt; 0){</span>
+<span class="fc" id="L102">                    customers.get(actualName).getBasket().addItem(each.getKey(), Integer.parseInt(arrOfStr[i]));</span>
+                }
+
+//                each.setValue(Integer.valueOf(arrOfStr[i]));
+//                Integer a = Integer.valueOf(arrOfStr[i]);
+<span class="fc" id="L107">                i++;</span>
+<span class="fc" id="L108">            }catch(Exception e){</span>
+<span class="fc" id="L109">                System.out.println(e);</span>
+<span class="fc" id="L110">                System.out.println(&quot;currently processing&quot; + each.getKey());</span>
+<span class="fc" id="L111">                System.out.println(customers.get(actualName).getBasket().items.toString());</span>
+<span class="fc" id="L112">                System.out.println(customers.get(actualName).getBasket().values.toString());</span>
+<span class="fc" id="L113">                System.out.println(Arrays.toString(customers.get(actualName).getBasket().names));</span>
+<span class="fc" id="L114">                return &quot;InvalidInput&quot;;</span>
+<span class="fc" id="L115">            }</span>
+<span class="fc" id="L116">        }</span>
+
+
+       //return ResponseEntity.status(HttpStatus.FOUND).body(name);
+<span class="fc" id="L120">       return &quot;redirect:/cart&quot;;</span>
+    }
+
+//    @PostMapping(&quot;/newname&quot;)
+//    public ResponseEntity&lt;String&gt; directAccessnewName(@RequestParam(value = &quot;user&quot;, defaultValue = &quot;&quot;) String user) {
+//        if (!Arrays.asList(users).contains(user)) {
+//            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(&quot;Invalid user.\n&quot;);
+//        }
+//        return null;
+//    }
+
+    @PostMapping(&quot;/newname&quot;)
+    public String newName(
+            @CookieValue(value = &quot;session&quot;, defaultValue = &quot;&quot;) String sessionToken,
+            @RequestParam(value = &quot;name&quot;,defaultValue = &quot;&quot;) String name,
+            Model model
+    ) {
+<span class="fc bfc" id="L137" title="All 2 branches covered.">        if (!sessions.containsKey(sessionToken)) {</span>
+            //return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(&quot;Unauthorised.\n&quot;);
+<span class="fc" id="L139">            return &quot;InvalidPage&quot;;</span>
+        }
+<span class="fc" id="L141">        model.addAttribute(&quot;customer&quot;, name);</span>
+
+<span class="fc" id="L143">        return &quot;newname&quot;;</span>
+    }
+
+    @PostMapping(&quot;/delname&quot;)
+    public String del(@RequestParam(value = &quot;name&quot;,defaultValue = &quot;&quot;) String name,
+                      @CookieValue(value = &quot;session&quot;, defaultValue = &quot;&quot;) String sessionToken,
+                      Model model
+    ) {
+<span class="pc bpc" id="L151" title="1 of 4 branches missed.">        if (!sessions.containsKey(sessionToken) || name.isEmpty()) {</span>
+            //return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(&quot;Unauthorised.\n&quot;);
+<span class="fc" id="L153">            return &quot;InvalidPage&quot;;</span>
+        }
+
+<span class="fc" id="L156">        model.addAttribute(&quot;customer&quot;, customers.get(name));</span>
+<span class="fc" id="L157">        return &quot;delname&quot;;</span>
+    }
+
+    @PostMapping(&quot;/deleteItems&quot;)
+    public String deleteItems(
+            @RequestParam(value = &quot;items&quot;,defaultValue = &quot;&quot;) String items,
+            @RequestParam(value = &quot;userName&quot;,defaultValue = &quot;&quot;) String userName) {
+
+<span class="fc" id="L165">        String actualName = userName.split(&quot;,&quot;)[0];</span>
+<span class="fc bfc" id="L166" title="All 2 branches covered.">        if(Objects.equals(items, &quot;&quot;)){</span>
+<span class="fc" id="L167">            customers.get(actualName).basket.items = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L168">            customers.get(actualName).basket.values = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L169">            return &quot;redirect:/cart&quot;;</span>
+        }
+        // The arrOfstr contains the item which shouldn't delete
+<span class="fc" id="L172">        String[] arrOfStr = items.split(&quot;,&quot;, customers.get(actualName).getBasket().items.size());</span>
+<span class="fc" id="L173">        ArrayList&lt;String&gt; shoudDelete = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L174" title="All 2 branches covered.">        for(Map.Entry&lt;String,Integer&gt; each: customers.get(actualName).basket.items.entrySet()){</span>
+<span class="fc" id="L175">            int found = 0;</span>
+<span class="fc bfc" id="L176" title="All 2 branches covered.">            for(String eachName:arrOfStr){</span>
+<span class="fc bfc" id="L177" title="All 2 branches covered.">                if(eachName.equals(each.getKey())){</span>
+<span class="fc" id="L178">                    found = 1;</span>
+<span class="fc" id="L179">                    break;</span>
+                }
+            }
+<span class="fc bfc" id="L182" title="All 2 branches covered.">            if(found == 0){</span>
+<span class="fc" id="L183">                shoudDelete.add(each.getKey());</span>
+            }
+<span class="fc" id="L185">        }</span>
+<span class="fc bfc" id="L186" title="All 2 branches covered.">        for(String each: shoudDelete){</span>
+<span class="fc" id="L187">            customers.get(actualName).basket.addItem(each,1);</span>
+<span class="fc" id="L188">            customers.get(actualName).basket.removeItem(each,1);</span>
+<span class="fc" id="L189">            customers.get(actualName).basket.removeItem(each,1);</span>
+<span class="fc" id="L190">            customers.get(actualName).basket.items.remove(each);</span>
+<span class="fc" id="L191">            customers.get(actualName).basket.values.remove(each);</span>
+<span class="fc" id="L192">        }</span>
+<span class="fc" id="L193">        customers.get(actualName).basket.names = arrOfStr;</span>
+
+
+        //return ResponseEntity.status(HttpStatus.FOUND).body(Arrays.toString(arrOfStr));
+
+<span class="fc" id="L198">        return &quot;redirect:/cart&quot;;</span>
+
+    }
+
+    @PostMapping(&quot;/adding&quot;)
+    public String adding(
+            @RequestParam(value = &quot;userName&quot;) String userName,
+            @RequestParam(value = &quot;newName&quot;) String name,
+            @RequestParam(value = &quot;cost&quot;) Object cost
+    ){
+        try{
+<span class="fc" id="L209">            cost = Double.parseDouble(cost.toString());</span>
+<span class="fc" id="L210">        }catch(Exception e){</span>
+<span class="fc" id="L211">            return &quot;InvalidPage&quot;;</span>
+<span class="fc" id="L212">        }</span>
+<span class="fc" id="L213">        name = name.toLowerCase();</span>
+<span class="fc" id="L214">        String actualName = userName.split(&quot;,&quot;)[0];</span>
+<span class="fc" id="L215">        ShoppingBasket basket = customers.get(actualName).basket;</span>
+<span class="fc bfc" id="L216" title="All 2 branches covered.">        if(basket.items.containsKey(name)){</span>
+<span class="fc" id="L217">            return &quot;redirect:/cart&quot;;</span>
+        }
+<span class="fc" id="L219">        basket.addNewItem(name,(double) cost);</span>
+<span class="fc" id="L220">        basket.addNewItem(name,(double) cost);</span>
+//        basket.items.put(name,0);
+//        basket.values.put(name, (double) cost);
+//        basket.names = new String [basket.items.size()];
+//        int i = 0;
+//        for(String each: basket.items.keySet()){
+//            basket.names[i] = each;
+//            i++;
+//        }
+
+<span class="fc" id="L230">        return &quot;redirect:/cart&quot;;</span>
+    }
+
+    @PostMapping(&quot;/updatename&quot;)
+    public String updateName(
+            @CookieValue(value = &quot;session&quot;, defaultValue = &quot;&quot;) String sessionToken,
+            @RequestParam(value = &quot;name&quot;,defaultValue = &quot;&quot;) String name,
+            Model model
+    ) {
+<span class="pc bpc" id="L239" title="1 of 4 branches missed.">        if (!sessions.containsKey(sessionToken) || name.isEmpty()) {</span>
+            //return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(&quot;Unauthorised.\n&quot;);
+<span class="fc" id="L241">            return &quot;InvalidPage&quot;;</span>
+        }
+<span class="fc" id="L243">        model.addAttribute(&quot;customer&quot;, customers.get(name));</span>
+
+<span class="fc" id="L245">        return &quot;updatename&quot;;</span>
+    }
+
+    @PostMapping(&quot;/updateProcess&quot;)
+    public String adding(
+            @RequestParam(value = &quot;itemName&quot;,defaultValue = &quot;&quot;) String itemName,
+            @RequestParam(value = &quot;itemCost&quot;,defaultValue = &quot;&quot;) String itemCost,
+            @RequestParam(value = &quot;userName&quot;,defaultValue = &quot;&quot;) String userName
+    ){
+
+<span class="fc" id="L255">        String actualName = userName.split(&quot;,&quot;)[0];</span>
+<span class="pc bpc" id="L256" title="1 of 4 branches missed.">        if(Objects.equals(itemName, &quot;&quot;) || Objects.equals(itemCost, &quot;&quot;)){</span>
+<span class="fc" id="L257">            customers.get(actualName).basket.items = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L258">            customers.get(actualName).basket.values = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L259">            return &quot;redirect:/cart&quot;;</span>
+        }
+<span class="fc" id="L261">        ShoppingBasket basket = customers.get(actualName).basket;</span>
+<span class="fc" id="L262">        String[] nameArray = itemName.split(&quot;,&quot;, customers.get(actualName).getBasket().items.size());</span>
+<span class="fc" id="L263">        String[] costArray = itemCost.split(&quot;,&quot;, customers.get(actualName).getBasket().items.size());</span>
+<span class="fc" id="L264">        ArrayList&lt;Integer&gt; amount = new ArrayList&lt;&gt;();</span>
+
+
+<span class="fc bfc" id="L267" title="All 2 branches covered.">        for(Map.Entry&lt;String,Integer&gt; each: basket.items.entrySet()){</span>
+<span class="fc" id="L268">            amount.add(each.getValue());</span>
+<span class="fc" id="L269">        }</span>
+//        try{
+//            basket.addItem(null,1);
+//        }catch (Exception e){
+//
+//        }
+//        try{
+//            basket.addItem(&quot;123&quot;,1);
+//        }catch (Exception e){
+//
+//        }
+//        try{
+//            basket.addItem(nameArray[0], -100);
+//        }catch (Exception e){
+//
+//        }
+//        try{
+//            basket.addItem(nameArray[0], Integer.MAX_VALUE);
+//            basket.addItem(nameArray[0], Integer.MAX_VALUE);
+//        }catch (Exception e){
+//
+//        }
+
+<span class="fc" id="L292">        basket.clear();</span>
+<span class="fc" id="L293">        basket.items.clear();</span>
+<span class="fc" id="L294">        basket.values.clear();</span>
+<span class="fc" id="L295">        basket.getValue();</span>
+<span class="fc" id="L296">        int i = 0;</span>
+<span class="fc bfc" id="L297" title="All 2 branches covered.">        for(String each: nameArray){</span>
+<span class="fc" id="L298">            basket.items.put(each,amount.get(i)-1);</span>
+<span class="fc" id="L299">            i++;</span>
+        }
+<span class="fc" id="L301">        int j = 0;</span>
+<span class="fc bfc" id="L302" title="All 2 branches covered.">        for(String each: costArray){</span>
+            try{
+<span class="fc" id="L304">                basket.values.put(nameArray[j], Double.valueOf(each));</span>
+<span class="fc" id="L305">                j++;</span>
+<span class="fc" id="L306">            }catch(Exception e){</span>
+<span class="fc" id="L307">                return &quot;InvalidInput&quot;;</span>
+<span class="fc" id="L308">            }</span>
+
+        }
+
+<span class="fc" id="L312">        System.out.println(basket.items.toString());</span>
+<span class="fc" id="L313">        basket.addItem(nameArray[0],1);</span>
+<span class="fc" id="L314">        System.out.println(Arrays.toString(basket.names));</span>
+<span class="fc" id="L315">        System.out.println(basket.values.toString());</span>
+<span class="fc" id="L316">        basket.names = nameArray;</span>
+<span class="fc" id="L317">        basket.getValue();</span>
+
+
+
+
+
+
+
+
+
+
+//        basket.clear();
+//
+//        int i = 0;
+//        for(String each: nameArray){
+//            if(amount.get(i) != 0) {
+//                basket.addItem(each, amount.get(i));
+//            }
+//            i++;
+//        }
+//        basket.values.clear();
+//        int j = 0;
+//        for(String each: costArray){
+//            try{
+//                basket.values.put(nameArray[j], Double.valueOf(each));
+//                j++;
+//            }catch(Exception e){
+//                return &quot;InvalidInput&quot;;
+//            }
+//
+//        }
+
+<span class="fc" id="L349">        return &quot;redirect:/cart&quot;;</span>
+    }
+
+    @GetMapping(&quot;/login&quot;)
+    public String loginPage() {
+<span class="fc" id="L354">        return &quot;redirect:/&quot;;</span>
+    }
+
+    @GetMapping(&quot;/logout&quot;)
+    public String logout(HttpSession session,
+                         @RequestParam(value = &quot;token&quot;,defaultValue = &quot;&quot;) String token) {
+<span class="fc" id="L360">        session.invalidate();</span>
+<span class="fc" id="L361">        sessions.remove(token);</span>
+<span class="fc" id="L362">        return &quot;redirect:/login&quot;;</span>
+    }
+
+
+    @GetMapping(&quot;/newname&quot;)
+    public String redirectNewName(@CookieValue(value = &quot;session&quot;, defaultValue = &quot;&quot;) String sessionToken,
+                                  @RequestParam(value = &quot;name&quot;,defaultValue = &quot;&quot;) String name,
+                                  Model model){
+<span class="pc bpc" id="L370" title="1 of 4 branches missed.">        if (sessions.size() == 0 || name.isEmpty()) {</span>
+            //return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(&quot;Unauthorised.\n&quot;);
+<span class="fc" id="L372">            return &quot;InvalidPage&quot;;</span>
+        }else{
+<span class="fc bfc" id="L374" title="All 2 branches covered.">            for(String each: sessions.keySet()){</span>
+<span class="fc" id="L375">                name = each;</span>
+<span class="fc" id="L376">            }</span>
+<span class="fc" id="L377">            name = sessions.get(name);</span>
+<span class="fc" id="L378">            model.addAttribute(&quot;customer&quot;, customers.get(name));</span>
+
+<span class="fc" id="L380">            return &quot;newname&quot;;</span>
+        }
+    }
+
+//    @GetMapping(&quot;/cart&quot;)
+//    public String redirectCart(@CookieValue(value = &quot;session&quot;, defaultValue = &quot;&quot;) String sessionToken,
+//                                  @RequestParam(value = &quot;name&quot;,defaultValue = &quot;&quot;) String name,
+//                                  Model model){
+//        if (!sessions.containsKey(sessionToken) &amp;&amp; name.isEmpty()) {
+//            //return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(&quot;Unauthorised.\n&quot;);
+//            return &quot;InvalidPage&quot;;
+//        }else{
+//            model.addAttribute(&quot;customer&quot;, name);
+//
+//            return &quot;cart&quot;;
+//        }
+//    }
+
+    @GetMapping(&quot;/delname&quot;)
+    public String redirectDelName(@CookieValue(value = &quot;session&quot;, defaultValue = &quot;&quot;) String sessionToken,
+                                  @RequestParam(value = &quot;name&quot;,defaultValue = &quot;&quot;) String name,
+                                  Model model){
+<span class="pc bpc" id="L402" title="1 of 4 branches missed.">        if (sessions.size() == 0 || name.isEmpty()) {</span>
+            //return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(&quot;Unauthorised.\n&quot;);
+<span class="fc" id="L404">            return &quot;InvalidPage&quot;;</span>
+        }else{
+<span class="fc bfc" id="L406" title="All 2 branches covered.">            for(String each: sessions.keySet()){</span>
+<span class="fc" id="L407">                name = each;</span>
+<span class="fc" id="L408">            }</span>
+<span class="fc" id="L409">            name = sessions.get(name);</span>
+<span class="fc" id="L410">            model.addAttribute(&quot;customer&quot;, customers.get(name));</span>
+
+<span class="fc" id="L412">            return &quot;delname&quot;;</span>
+        }
+    }
+
+    @GetMapping(&quot;/updatename&quot;)
+    public String redirectUpdateName(
+
+                                  Model model){
+<span class="fc bfc" id="L420" title="All 2 branches covered.">        if (sessions.size() == 0) {</span>
+            //return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(&quot;Unauthorised.\n&quot;);
+<span class="fc" id="L422">            return &quot;InvalidPage&quot;;</span>
+        }else{
+<span class="fc" id="L424">            String name = &quot;&quot;;</span>
+<span class="fc bfc" id="L425" title="All 2 branches covered.">            for(String each: sessions.keySet()){</span>
+<span class="fc" id="L426">                name = each;</span>
+<span class="fc" id="L427">            }</span>
+<span class="fc" id="L428">            name = sessions.get(name);</span>
+<span class="fc" id="L429">            System.out.println(name);</span>
+<span class="fc" id="L430">            model.addAttribute(&quot;customer&quot;, customers.get(name));</span>
+
+<span class="fc" id="L432">            return &quot;updatename&quot;;</span>
+        }
+    }
+
+
+//    @GetMapping(&quot;/counter&quot;)
+//    public ResponseEntity&lt;String&gt; counter() {
+//        counter.incrementAndGet();
+//        return ResponseEntity.status(HttpStatus.OK).body(&quot;[&quot; + counter + &quot;]&quot;);
+//    }
+//
+//    @GetMapping(&quot;/cost&quot;)
+//    public ResponseEntity&lt;String&gt; cost() {
+//        return ResponseEntity.status(HttpStatus.OK).body(
+//            shoppingBasket.getValue() == null ? &quot;0&quot; : shoppingBasket.getValue().toString()
+//        );
+//    }
+//
+//    @GetMapping(&quot;/greeting&quot;)
+//    public String greeting(
+//        @RequestParam(name=&quot;name&quot;, required=false, defaultValue=&quot;World&quot;) String name,
+//        Model model
+//    ) {
+//        model.addAttribute(&quot;name&quot;, name);
+//        return &quot;greeting&quot;;
+//    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

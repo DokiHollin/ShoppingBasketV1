@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" th:href="@{general.css}" />
+  <title>Update Name</title>
+
+</head>
+<body>
+<h1>
+  <span th:text= "${customer.getName()}" />  updating
+</h1>
+<form action="#" th:action="@{/updateProcess}" method="post">
+  <table>
+
+    <thead>
+    <tr>
+      <th>Item</th>
+      <th>Cost</th>
+      <th>Update Name</th>
+      <th>Update Cost</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:each="item : ${customer.getBasket().values}">
+      <td th:text="${item.getKey()}"></td>
+      <td th:text="${item.getValue()}"></td>
+      <td>
+        <input type="text" name="itemName" th:value="${item.getKey()}" />
+<!--        <input type="hidden" name="itemId" th:value="${item.getValue()}" />-->
+      </td>
+      <td>
+        <input type="text" name="itemCost" th:value="${item.getValue()}" />
+<!--        <input type="hidden" name="itemId" th:value="${item.getKey()}" />-->
+      </td>
+      <td>
+        <label for="userName"></label>
+        <input type="hidden" id="userName" name = "userName"  th:value="${customer.getName()}" />
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+  <button type="submit">Update Items</button>
+</form>
+</body>
+</html>
